@@ -14,6 +14,8 @@
 		B407404418EEFFC7007F631F /* LocationAtHome.m in Sources */ = {isa = PBXBuildFile; fileRef = B407404318EEFFC7007F631F /* LocationAtHome.m */; };
 		B407404718EF01E5007F631F /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B407404618EF01E5007F631F /* CoreDataTableViewController.m */; };
 		B407404A18EF1FDC007F631F /* PrepareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B407404918EF1FDC007F631F /* PrepareTableViewController.m */; };
+		B4D3293018F546CC0087A12D /* UnitsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D3292F18F546CC0087A12D /* UnitsTableViewController.m */; };
+		B4D3293318F54B790087A12D /* UnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D3293218F54B790087A12D /* UnitViewController.m */; };
 		B4DF31C618EEAC5F0053130F /* Model2toModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4DF31C518EEAC5F0053130F /* Model2toModel3.xcmappingmodel */; };
 		B4DF31C918EEAFC20053130F /* MigrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DF31C818EEAFC20053130F /* MigrationViewController.m */; };
 		B4DF31D018EED5B70053130F /* Model3toModel4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4DF31CF18EED5B70053130F /* Model3toModel4.xcmappingmodel */; };
@@ -63,6 +65,10 @@
 		B407404618EF01E5007F631F /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		B407404818EF1FDC007F631F /* PrepareTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrepareTableViewController.h; sourceTree = "<group>"; };
 		B407404918EF1FDC007F631F /* PrepareTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrepareTableViewController.m; sourceTree = "<group>"; };
+		B4D3292E18F546CC0087A12D /* UnitsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsTableViewController.h; sourceTree = "<group>"; };
+		B4D3292F18F546CC0087A12D /* UnitsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsTableViewController.m; sourceTree = "<group>"; };
+		B4D3293118F54B790087A12D /* UnitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitViewController.h; sourceTree = "<group>"; };
+		B4D3293218F54B790087A12D /* UnitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitViewController.m; sourceTree = "<group>"; };
 		B4DF31BD18EEA50A0053130F /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		B4DF31C118EEABA70053130F /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		B4DF31C518EEAC5F0053130F /* Model2toModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2toModel3.xcmappingmodel; sourceTree = "<group>"; };
@@ -133,6 +139,8 @@
 				B4DF31C818EEAFC20053130F /* MigrationViewController.m */,
 				B4E1242618F0734900130135 /* ItemViewController.h */,
 				B4E1242718F0734900130135 /* ItemViewController.m */,
+				B4D3293118F54B790087A12D /* UnitViewController.h */,
+				B4D3293218F54B790087A12D /* UnitViewController.m */,
 			);
 			name = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
@@ -144,6 +152,8 @@
 				B407404918EF1FDC007F631F /* PrepareTableViewController.m */,
 				B4E1242218F045CA00130135 /* ShopTableViewController.h */,
 				B4E1242318F045CA00130135 /* ShopTableViewController.m */,
+				B4D3292E18F546CC0087A12D /* UnitsTableViewController.h */,
+				B4D3292F18F546CC0087A12D /* UnitsTableViewController.m */,
 			);
 			name = "Grocery Dude Table View Controllers";
 			sourceTree = "<group>";
@@ -360,6 +370,8 @@
 				B407404718EF01E5007F631F /* CoreDataTableViewController.m in Sources */,
 				B407403E18EEFFC7007F631F /* Item.m in Sources */,
 				B407403B18EEFFC7007F631F /* Location.m in Sources */,
+				B4D3293018F546CC0087A12D /* UnitsTableViewController.m in Sources */,
+				B4D3293318F54B790087A12D /* UnitViewController.m in Sources */,
 				B4E1242418F045CA00130135 /* ShopTableViewController.m in Sources */,
 				B407403818EEFFC6007F631F /* LocationInStore.m in Sources */,
 				B4E7CCE218ED9C92006F633D /* JRAppDelegate.m in Sources */,
