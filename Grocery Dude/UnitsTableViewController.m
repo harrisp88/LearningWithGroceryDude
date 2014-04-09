@@ -10,6 +10,7 @@
 #import "CoreDataHelper.h"
 #import "JRAppDelegate.h"
 #import "Unit.h"
+#import "UnitViewController.h"
 
 #define debug YES
 
@@ -73,5 +74,28 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 
     [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - SEGUE
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if(debug)
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+
+    UnitViewController *unitVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"Add Object Segue"]){
+        CoreDataHelper *cdh = [(JRAppDelegate*)[[UIApplication sharedApplication]delegate]cdh];
+        Unit *newUnit = [NSEntityDescription insertNewObjectForEntityForName:@"Unit" inManagedObjectContext:cdh.context];
+        NSError *error;
+        if (![cdh.context obtainPermanentIDsForObjects:[NSArray arrayWithObject:newUnit] error:&error])
+            NSLog(@"Couldn't obtain a permanent ID for object %@",error);
+        unitVC.selectedObjectID = newUnit.objectID;
+    }
+    else if([segue.identifier isEqualToString:@"Edit Object Segue"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        unitVC.selectedObjectID = [[self.frc objectAtIndexPath:indexPath] objectID];
+    }
+    else {
+        NSLog(@"Unidentified Segue Attempted!");
+    }
 }
 @end

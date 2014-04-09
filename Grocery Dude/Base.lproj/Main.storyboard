@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="1976" y="-475"/>
         </scene>
-        <!--View Controller - Unit-->
+        <!--Unit View Controller - Unit-->
         <scene sceneID="Yb8-H3-qcA">
             <objects>
-                <viewController id="EBZ-ed-mQE" sceneMemberID="viewController">
+                <viewController id="EBZ-ed-mQE" customClass="UnitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FUh-P1-feL"/>
                         <viewControllerLayoutGuide type="bottom" id="utc-IU-9YZ"/>
@@ -141,8 +141,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Unit" id="IR9-AN-di1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="rqp-gc-yXB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="rqp-gc-yXB">
+                            <connections>
+                                <action selector="done:" destination="EBZ-ed-mQE" id="KTH-p8-Dgt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="4xm-G2-wZf" id="1YF-gG-bHF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AgO-8c-9W0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

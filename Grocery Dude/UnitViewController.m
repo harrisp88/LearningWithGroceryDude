@@ -7,6 +7,10 @@
 //
 
 #import "UnitViewController.h"
+#import "Unit.h"
+#import "JRAppDelegate.h"
+
+#define debug YES
 
 @interface UnitViewController ()
 
@@ -14,36 +18,73 @@
 
 @implementation UnitViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+#pragma mark - VIEW
+- (void)refreshInterface{
+    if(debug)
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+
+    if (_selectedObjectID){
+        CoreDataHelper *cdh = [(JRAppDelegate*)[[UIApplication sharedApplication]delegate]cdh];
+        Unit *unit = (Unit*)[cdh.context existingObjectWithID:_selectedObjectID error:nil];
+        
+        _nameTextField.text = unit.name;
     }
-    return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
+    if(debug)
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self hideKeyboardWhenBackgroundIsTapped];
+    _nameTextField.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated{
+    if(debug)
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+
+    [self refreshInterface];
+    [_nameTextField becomeFirstResponder];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - TEXTFIELD
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if(debug)
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    CoreDataHelper *cdh = [(JRAppDelegate*)[[UIApplication sharedApplication]delegate]cdh];
+    Unit *unit = (Unit*)[cdh.context existingObjectWithID:_selectedObjectID error:nil];
+    
+    if (textField == _nameTextField){
+        unit.name = _nameTextField.text;
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"SomethingChanged" object:nil];
+    }
 }
-*/
+
+#pragma mark - INTERACTION
+- (IBAction)done:(id)sender{
+    if(debug)
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+
+    [self hideKeyboard];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)hideKeyboardWhenBackgroundIsTapped{
+    if(debug)
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [tgr setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tgr];
+}
+
+- (void)hideKeyboard{
+    if(debug)
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+
+    [self.view endEditing:YES];
+}
 
 @end
